@@ -1,0 +1,53 @@
+{% extends 'layout.html' %}
+{% block body %}
+<div class="container">
+  <form action="/" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label my-3">Task Title</label>
+      <input type="text" class="form-control" name="title" id="title">
+    </div>
+    <div class="mb-3">
+      <label for="des" class="form-label">Task Description</label>
+      <input type="text" class="form-control" name="description" id="des">
+    </div>
+    <button type="submit" class="btn btn-primary">Add Task</button>
+  </form>
+</div>
+
+<div class="container my-5">
+  <h2>My Tasks</h2>
+  <table class="table">
+      {% if allTasks|length==0 %}
+      <div class="alert alert-primary" role="alert">
+        No Tasks for now.
+      </div>
+      {% else %}
+      <thead>
+        <tr>
+          <th scope="col">SNo.</th>
+          <th scope="col">Title</th>
+          <th scope="col">Description</th>
+          <th scope="col">Time</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for task in allTasks %}
+      
+      <tr>
+        <th scope="row">{{loop.index}}</th>
+        <td>{{task.task}}</td>
+        <td>{{task.description}}</td>
+        <td>{{task.date_created}}</td>
+        <td>
+          <a href="/delete/{{task.id}}" type="button" class="btn btn-outline-danger mx-1">Delete</button>
+            <a href="/update/{{task.id}}" type="button" class="btn btn-outline-info mx-1">Update</button>
+        </td>
+      </tr>
+      {% endfor %}
+      {% endif %}
+    </tbody>
+</div>
+{% endblock body %}
+
+</html>

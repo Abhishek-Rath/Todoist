@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container my-2">
+  <h2 >Update Task</h2>
+  <form action="/update/{{up_task.id}}" method="POST">
+    <div class="mb-3">
+      <label for="title" class="form-label my-2">Task Title</label>
+      <input type="text" class="form-control" value="{{up_task.task}}" name="title" id="title">
+    </div>
+    <div class="mb-3">
+      <label for="des" class="form-label">Task Description</label>
+      <input type="text" class="form-control" value="{{up_task.description}}" name="description" id="des">
+    </div>
+    <button type="submit" class="btn btn-primary">Update</button>
+  </form>
+</div>
+{% endblock body %}
+
+</html>
