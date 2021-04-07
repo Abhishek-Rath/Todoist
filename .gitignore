@@ -2,4 +2,3 @@
 *.log
 env/
 __pycache__/
-todo.db
