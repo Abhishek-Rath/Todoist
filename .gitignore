@@ -1,5 +1,5 @@
 *.db
 *.log
 env/
-_pycache_/
+__pycache__/
 todo.db
